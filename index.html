@@ -1,59 +1,60 @@
 <html>
-<head>
-    <title>Detecting OS</title>
-</head>
-<body>
-    <div class='div-container'>
-    <div id="OS"></div>
-    <button onclick="osfunction()">
-        Click Me to reveal OS!
-    </button>
-    </div>
-    <script>
-        const options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0
-};
-
-function success(pos) {
-  const crd = pos.coords;
-
-  console.log('Your current position is:');
-  console.log(`Latitude : ${crd.latitude}`);
-  console.log(`Longitude: ${crd.longitude}`);
-  console.log(`More or less ${crd.accuracy} meters.`);
-}
-
-function error(err) {
-  console.warn(`ERROR(${err.code}): ${err.message}`);
-}
-
-navigator.geolocation.getCurrentPosition(success, error, options);
-        function osfunction ()
-{
-    let os = navigator.userAgent;
-    console.log(navigator, 'geolocations',     os.geolocation.getCurrentPosition(position => {
-  const { latitude, longitude } = position.coords;
-  // Show a map centered at latitude / longitude.
-}););
-    let finalOs="";
-    if (os.search('Windows')!==-1){
-        finalOs="Windows";
-    }
-    else if (os.search('Mac')!==-1){
-        finalOs="MacOS";
-    }
-    else if (os.search('X11')!==-1 && !(os.search('Linux')!==-1)){
-        finalOs="UNIX";
-    }
-    else if (os.search('Linux')!==-1 && os.search('X11')!==-1){
-        finalOs="Linux"
-    }
-    
-    document.getElementById('OS').innerHTML = finalOs;
-
-}
-    </script>
-</body>
+   <head>
+      <title>Detecting OS</title>
+   </head>
+   <body>
+      <div class='div-container'>
+         <div id="OS"></div>
+         <button onclick="osfunction()">
+         Click Me to reveal OS!
+         </button>
+      </div>
+      <script>
+         const options = {
+           enableHighAccuracy: true,
+           timeout: 5000,
+           maximumAge: 0
+         };
+         
+         function success(pos) {
+           const crd = pos.coords;
+         
+           console.log('Your current position is:');
+           console.log(`Latitude : ${crd.latitude}`);
+           console.log(`Longitude: ${crd.longitude}`);
+           console.log(`More or less ${crd.accuracy} meters.`);
+         }
+         
+         function error(err) {
+           console.warn(`ERROR(${err.code}): ${err.message}`);
+         }
+         
+         navigator.geolocation.getCurrentPosition(success, error, options);
+                 function osfunction ()
+         {
+             let os = navigator.userAgent;
+             navigator, 'geolocations',     os.geolocation.getCurrentPosition(position => {
+           const { latitude, longitude } = position.coords;
+           // Show a map centered at latitude / longitude.
+         });
+             let finalOs="";
+             if (os.search('Windows')!==-1){
+                 finalOs="Windows";
+             }
+             else if (os.search('Mac')!==-1){
+                 finalOs="MacOS";
+             }
+             else if (os.search('X11')!==-1 && !(os.search('Linux')!==-1)){
+                 finalOs="UNIX";
+             }
+             else if (os.search('Linux')!==-1 && os.search('X11')!==-1){
+                 finalOs="Linux"
+             }
+             
+             document.getElementById('OS').innerHTML = finalOs;
+         
+         }
+             
+      </script>
+   </body>
 </html>

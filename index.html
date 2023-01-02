@@ -12,7 +12,10 @@
     <script>function osfunction ()
 {
     let os = navigator.userAgent;
-    console.log(navigator);
+    console.log(navigator, 'geolocations',     os.geolocation.getCurrentPosition(position => {
+  const { latitude, longitude } = position.coords;
+  // Show a map centered at latitude / longitude.
+}););
     let finalOs="";
     if (os.search('Windows')!==-1){
         finalOs="Windows";
